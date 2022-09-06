@@ -1,10 +1,8 @@
 import React from 'react'
 import DayListItem from './DayListItem'
-import {useState} from 'react'
 
 
 export default function DayList(props) {
-  //const [day, setDay] = useState(props.day)
 
   const days = props.days.map((day) => {
     return(
