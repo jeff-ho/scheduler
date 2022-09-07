@@ -1,10 +1,8 @@
 import React from 'react'
 import InterviewerListItem from './InterviewerListItem';
 import 'components/InterviewerList.scss';
-import { useState } from 'react';
 
 export default function InterviewerList({value, onChange, interviewers}) {
-
 
   const interviewersList = interviewers.map(({id, name, avatar})=> {
     return(
