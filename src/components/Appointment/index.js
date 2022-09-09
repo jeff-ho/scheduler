@@ -14,8 +14,6 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-
-
   return (
     <article className="appointment">
       <Header time={props.time} />
@@ -26,9 +24,7 @@ export default function Appointment(props) {
       interviewer={props.interview.interviewer.name}
       />
       }
-      {mode === CREATE && <Form student='' interviewers={[]} onCancel={() => back()} />}
-
-
+      {mode === CREATE && <Form student='' interviewers={props.interviewers} onCancel={() => back()} />}
     </article>
   )
 }
