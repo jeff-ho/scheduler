@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import DayList from "./DayList";
-import "components/Application.scss";
+import "./Application.scss";
 import Appointment from "./Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from 'helpers/selectors';
+//redux kit, useContext
 
-
-export default function Application(props) {
+export default function Application() {
   const setDay = day => setState({ ...state, day });
   
   const[state, setState] = useState({
@@ -28,7 +28,25 @@ export default function Application(props) {
   
   const appointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state, state.day);
-  
+
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+     
+    return axios.put(`/api/appointments/${id}`, appointment)
+    .then(() => {
+      setState(prev => ({...prev, appointments}))
+    })
+  }
+
+  console.log(appointments, 'appointments')
   const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     return (
@@ -38,6 +56,7 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={interviewers}
+        bookInterview = {bookInterview}
       />
     );
   });

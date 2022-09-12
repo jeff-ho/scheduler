@@ -14,7 +14,7 @@ export function getInterview(state, interview) {
 
   const interviewerArray = Object.values(state.interviewers)
   const student = interview.student;
-  const interviewer = interviewerArray.find(({id}) => id === interview.interviewer )
+  const interviewer = interviewerArray.find((interviewer) => interviewer.id === interview.interviewer )
    
   return {student, interviewer};
   
