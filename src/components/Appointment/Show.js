@@ -16,7 +16,7 @@ export default function Show({student, onEdit, onManageConfirm, interviewer}) {
         className="appointment__actions-button"
         src="images/edit.png"
         alt="Edit"
-        onClick={() => onEdit(student, interviewer)}
+        onClick={() => onEdit()}
       />
       <img
         className="appointment__actions-button"
