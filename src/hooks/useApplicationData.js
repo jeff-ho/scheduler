@@ -20,8 +20,24 @@ export default function useApplicationData() {
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
     });
   },[])
+
+  function calculateSpots(id, appointments) {
+    //index of the day of the week. Example Monday is 0 index therefore dayIndex === 0 for Monday
+    const dayIndex = state.days.findIndex(day => state.day === day.name)
+    //returns the current day object
+    const currentDay = state.days[dayIndex];
+    const spots = currentDay.appointments.filter(appointmentId => !appointments[appointmentId].interview).length
   
-  
+    const day = {
+      ...state.days[dayIndex],
+      spots
+    }
+    const days = [...state.days]
+    days[dayIndex] = day;
+    return days;
+  }
+
+
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -33,14 +49,10 @@ export default function useApplicationData() {
       [id]: appointment
     };
      
-    
     return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
-      for(const day of state.days) {
-        if(day.appointments.includes(id)) {
-          day.spots --
-        }
-      }
+      let days = calculateSpots(id, appointments)
+      setState(prev => ({...prev, days }))
       setState(prev => ({...prev, appointments}))
     })
   }
@@ -58,15 +70,15 @@ export default function useApplicationData() {
 
     return axios.delete(`/api/appointments/${id}`)
     .then(() => {
-      for(const day of state.days) {
-        if(day.appointments.includes(id)) {
-          day.spots ++
-        }
-      }
+      let days = calculateSpots(id,appointments)
+      setState(prev => ({...prev, days }))
       setState(prev => ({...prev, appointments}))
     })
   };
 
-
   return { state, setDay, bookInterview, cancelInterview}
 }
+
+
+
+
