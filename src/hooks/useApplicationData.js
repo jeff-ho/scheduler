@@ -22,9 +22,7 @@ export default function useApplicationData() {
   },[])
 
   function calculateSpots(id, appointments) {
-    //index of the day of the week. Example Monday is 0 index therefore dayIndex === 0 for Monday
     const dayIndex = state.days.findIndex(day => state.day === day.name)
-    //returns the current day object
     const currentDay = state.days[dayIndex];
     const spots = currentDay.appointments.filter(appointmentId => !appointments[appointmentId].interview).length
   
@@ -36,7 +34,6 @@ export default function useApplicationData() {
     days[dayIndex] = day;
     return days;
   }
-
 
   function bookInterview(id, interview) {
     const appointment = {
