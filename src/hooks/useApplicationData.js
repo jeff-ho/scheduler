@@ -33,8 +33,14 @@ export default function useApplicationData() {
       [id]: appointment
     };
      
+    
     return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
+      for(const day of state.days) {
+        if(day.appointments.includes(id)) {
+          day.spots --
+        }
+      }
       setState(prev => ({...prev, appointments}))
     })
   }
@@ -52,6 +58,11 @@ export default function useApplicationData() {
 
     return axios.delete(`/api/appointments/${id}`)
     .then(() => {
+      for(const day of state.days) {
+        if(day.appointments.includes(id)) {
+          day.spots ++
+        }
+      }
       setState(prev => ({...prev, appointments}))
     })
   };

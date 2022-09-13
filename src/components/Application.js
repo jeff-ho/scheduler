@@ -13,7 +13,7 @@ const {
     bookInterview,
     cancelInterview
   } = useApplicationData();
-
+  
   const interviewers = getInterviewersForDay(state, state.day);
   
   const appointments = getAppointmentsForDay(state, state.day).map((appointment) => {
