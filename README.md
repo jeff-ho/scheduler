@@ -2,7 +2,10 @@
 
 Interview scheduler is a single page REACT application that allows a user to book and cancel interviews. The data used in this application is persisted using an API server using a PostgreSQL database. Client server communication done over HTTP  in JSON format. Application testing was done using Jest and Cypress.
 
-## Result
+## Dependencies
+1. 
+
+## Final Product
 <img width="1757" alt="Screen Shot 2022-09-14 at 11 16 47 AM" src="https://user-images.githubusercontent.com/55267263/190198768-f08737bc-d7bd-4c0f-a888-b59655d254d7.png">
 <img width="1757" alt="Screen Shot 2022-09-14 at 11 16 59 AM" src="https://user-images.githubusercontent.com/55267263/190198803-14c1e1d8-836a-4088-8d36-47bb03f81e76.png">
 <img width="1757" alt="Screen Shot 2022-09-14 at 11 17 08 AM" src="https://user-images.githubusercontent.com/55267263/190199024-fc87452a-1a71-4bf7-b951-eca710424e12.png">
