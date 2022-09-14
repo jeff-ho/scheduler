@@ -27,5 +27,5 @@ export default function Show({student, onEdit, onManageConfirm, interviewer}) {
     </section>
   </section>
 </main>
-  )
-}
+  );
+};

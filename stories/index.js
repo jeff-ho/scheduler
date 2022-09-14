@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import "index.scss";
@@ -17,7 +16,6 @@ import Status from 'components/Appointment/Status';
 import Error from 'components/Appointment/Error';
 import Form from 'components/Appointment/Form';
 
-
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -33,7 +31,6 @@ storiesOf("Button", module)
       Disabled
     </Button>
   ));
-
 
   storiesOf("DayListItem", module) 
   .addParameters({
@@ -143,8 +140,6 @@ storiesOf("Button", module)
     />
   ));
 
-
-
   storiesOf("Appointment", module)
   .addParameters({
     backgrounds: [{ name: "white", value: "#fff", default: true }]
@@ -174,4 +169,4 @@ storiesOf("Button", module)
       />
       <Appointment time="5pm" />
     </Fragment>
-  ))
+  ));

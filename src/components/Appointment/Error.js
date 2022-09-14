@@ -14,5 +14,5 @@ export default function Error({message, onClose}) {
     onClick={onClose}
   />
   </main>
-  )
-}
+  );
+};

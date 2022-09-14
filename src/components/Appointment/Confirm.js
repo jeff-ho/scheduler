@@ -10,5 +10,5 @@ export default function Confirm({message, onConfirm, onCancel}) {
           <Button danger onClick={() => onConfirm()}>Confirm</Button>
         </section>
     </main>
-  )
-}
+  );
+};

@@ -10,5 +10,5 @@ export default function Status({message}) {
   />
   <h1 className="text--semi-bold">{message}</h1>
 </main>
-  )
-}
+  );
+};

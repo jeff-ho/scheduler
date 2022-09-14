@@ -17,8 +17,8 @@ export default function Appointment({interview, id, bookInterview, cancelIntervi
   const DELETING = 'DELETING';
   const CONFIRM = 'CONFIRM';
   const EDIT = 'EDIT';
-  const ERROR_SAVE = 'ERROR_SAVE'
-  const ERROR_DELETE = 'ERROR_DELETE'
+  const ERROR_SAVE = 'ERROR_SAVE';
+  const ERROR_DELETE = 'ERROR_DELETE';
 
   const { mode, transition, back } = useVisualMode (
     interview ? SHOW : EMPTY
@@ -29,34 +29,34 @@ export default function Appointment({interview, id, bookInterview, cancelIntervi
       student: name,
       interviewer
     };
-    transition(SAVING)   
+    transition(SAVING);   
 
     bookInterview(id, interview)
     .then(()=> {
       transition(SHOW);
     })
     .catch((error) => {
-      transition(ERROR_SAVE, true)
+      transition(ERROR_SAVE, true);
     })
   }
 
   function manageConfirm() {
-    transition(CONFIRM)
+    transition(CONFIRM);
   };
 
   function manageDelete() {
-    transition(DELETING, true)
+    transition(DELETING, true);
     cancelInterview(id)
     .then(() => {
       transition(EMPTY)
     })
     .catch((error) => {
-      transition(ERROR_DELETE, true)
+      transition(ERROR_DELETE, true);
     })
   };
 
   function manageEdit(student, interviewer) {
-    transition(EDIT)
+    transition(EDIT);
   };
    
   return (
@@ -91,5 +91,5 @@ export default function Appointment({interview, id, bookInterview, cancelIntervi
       {mode === DELETING && <Status message={'Deleting'} />}  
       {mode === CONFIRM && <Confirm onConfirm={manageDelete} onCancel={back} message={'Are you sure you would like to delete?'} />} 
     </article>
-  )
+  );
 };

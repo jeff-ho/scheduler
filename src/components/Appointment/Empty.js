@@ -10,5 +10,5 @@ export default function Empty({onAdd}) {
         onClick={onAdd}
       />
     </main>
-  )
+  );
 };
