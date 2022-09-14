@@ -2,7 +2,7 @@
   "name": "scheduler",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8001",
+  "proxy": "http://localhost:8001",  
   "dependencies": {
     "axios": "^0.27.2",
     "classnames": "^2.2.6",
@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --verbose",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public --ci",
     "build-storybook": "build-storybook -s public"
